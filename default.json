@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": [
+    "Shared Renovate preset for stevehansen repos.",
+    "Non-major updates land as one weekly grouped PR that Renovate merges once every status check is green; repos without CI keep it open for a manual merge.",
+    "Majors stay separate PRs for review. Security fixes (from Dependabot alerts) ignore the schedule and release-age wait.",
+    "platformAutomerge is off because these repos have no branch protection, so GitHub-native automerge cannot wait on CI."
+  ],
+  "extends": ["config:recommended", "group:allNonMajor", ":automergeMinor"],
+  "timezone": "Europe/Brussels",
+  "schedule": ["before 6am on monday"],
+  "minimumReleaseAge": "3 days",
+  "platformAutomerge": false,
+  "labels": ["dependencies"]
+}
