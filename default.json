@@ -11,5 +11,13 @@
   "schedule": ["before 6am on monday"],
   "minimumReleaseAge": "3 days",
   "platformAutomerge": false,
-  "labels": ["dependencies"]
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "description": "GitHub Actions majors only touch workflows, which the PR's own CI run exercises, so they can automerge like minors.",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["major"],
+      "automerge": true
+    }
+  ]
 }
