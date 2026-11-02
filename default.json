@@ -18,6 +18,12 @@
       "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["major"],
       "automerge": true
+    },
+    {
+      "description": "npm rejects a lockfile-only update of a package pinned in overrides (EOVERRIDE: conflicts with direct dependency), so bump the override range in package.json instead.",
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["overrides"],
+      "rangeStrategy": "bump"
     }
   ]
 }
